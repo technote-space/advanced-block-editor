@@ -2,7 +2,7 @@
 /*
 Plugin Name: Advanced Block Editor
 Plugin URI:
-Description: This plugin adds some features to the block editor.
+Description: This plugin adds some useful features to the block editor.
 Author: Technote
 Version: 0.0.1
 Author URI: https://technote.space

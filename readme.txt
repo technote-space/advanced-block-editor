@@ -8,11 +8,11 @@ Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin adds some features to the block editor.
+This plugin adds some useful features to the block editor.
 
 == Description ==
 
-This plugin adds some features to the block editor.
+This plugin adds some useful features to the block editor.
 [GitHub (More details)](https://github.com/technote-space/advanced-block-editor)
 [Issues (Reporting a new bug or feature request)](https://github.com/technote-space/advanced-block-editor/issues)
 
