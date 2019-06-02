@@ -1,5 +1,5 @@
 const { Fragment } = wp.element;
-const { Modal } = wp.components;
+const { Modal, SelectControl } = wp.components;
 const { PluginMoreMenuItem } = wp.editPost;
 const { withSelect, withDispatch } = wp.data;
 const { withState, compose } = wp.compose;
@@ -7,38 +7,34 @@ const { __ } = wp.i18n;
 
 import { STORE_NAME } from '../store/constant';
 import { translate } from '../../common/utils';
-import { isActive } from '../utils';
+import { isActive, getWordCountTypes } from '../utils';
 
 /**
  * @param {boolean} isOpened is opened?
+ * @param {function} setType set type
  * @param {function} openModal open modal
  * @param {function} closeModal close modal
+ * @param {string} type type
  * @param {boolean} isActive is active?
- * @param {number} width width
- * @param {function} setWidth set width
- * @returns {*} Editor width setting
+ * @returns {*} Word count setting
  * @constructor
  */
-const SetEditorWidth = ( { isOpened, openModal, closeModal, isActive, width, setWidth } ) => {
+const SetWordCountType = ( { isOpened, setType, openModal, closeModal, type, isActive } ) => {
 	return isActive && <Fragment>
 		<PluginMoreMenuItem
 			onClick={ openModal }
 		>
-			{ translate( 'Set editor width' ) }
+			{ translate( 'Set word count type' ) }
 		</PluginMoreMenuItem>
 		{ isOpened && <Modal
-			title={ translate( 'Editor width setting' ) }
+			title={ translate( 'Set word count type' ) }
 			closeLabel={ __( 'Close' ) }
 			onRequestClose={ closeModal }
 		>
-			<input
-				type='number'
-				value={ width }
-				onChange={ event => setWidth( event.target.value ) }
-				style={ {
-					display: 'block',
-					margin: '10px auto',
-				} }
+			<SelectControl
+				options={ getWordCountTypes() }
+				onChange={ setType }
+				value={ type }
 			/>
 		</Modal> }
 	</Fragment>;
@@ -49,12 +45,12 @@ export default compose(
 		isOpened: false,
 	} ),
 	withSelect( select => ( {
-		width: select( STORE_NAME ).getWidth(),
+		type: select( STORE_NAME ).getWordCountType( true ),
 		isActive: isActive(),
 	} ) ),
 	withDispatch( ( dispatch, { setState } ) => ( {
-		setWidth: ( width ) => dispatch( STORE_NAME ).setWidth( width ),
+		setType: ( type ) => dispatch( STORE_NAME ).setType( type ),
 		openModal: () => setState( { isOpened: true } ),
 		closeModal: () => setState( { isOpened: false } ),
 	} ) ),
-)( SetEditorWidth );
+)( SetWordCountType );

@@ -1,18 +1,18 @@
 import { INITIALIZE, SET_WIDTH } from './constant';
+import { isActive } from '../utils';
 
 export default ( state = {
-	width: false,
+	preferences: {},
 }, action ) => {
 	switch ( action.type ) {
 		case INITIALIZE:
-			if ( state.width ) {
-				setStyle( state.width );
-			}
+			setStyle( state.preferences.width );
 			break;
 		case SET_WIDTH:
-			if ( /^\d+$/.test( action.width ) ) {
+			if ( /^\d*$/.test( action.width ) ) {
 				const newState = Object.assign( {}, state );
-				newState.width = action.width;
+				newState.preferences = Object.assign( {}, state.preferences );
+				newState.preferences.width = action.width;
 				setStyle( action.width );
 				return newState;
 			}
@@ -30,6 +30,9 @@ function setStyle( width ) {
 	const remove = document.getElementById( 'set-editor-width' );
 	if ( remove ) {
 		remove.remove();
+	}
+	if ( ! isActive() || ! width ) {
+		return;
 	}
 
 	const styleSheetElement = document.createElement( 'style' );
@@ -52,9 +55,7 @@ function setStyle( width ) {
  * @param {number} width width
  * @returns {{'.editor-writing-flow': string, '.wp-block': string}} styles
  */
-function getStyles( width ) {
-	return {
-		'.editor-writing-flow': `max-width: ${ width }px; width: auto; margin: auto`,
-		'.wp-block': 'max-width: 100%; margin: 0 auto; padding: 0;',
-	};
-}
+const getStyles = width => ( {
+	'.editor-writing-flow': `max-width: ${ width }px; width: auto; margin: auto`,
+	'.wp-block': 'max-width: 100%; margin: 0 auto; padding: 0;',
+} );

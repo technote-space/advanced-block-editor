@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: advanced-block-editor\n"
 "POT-Creation-Date: 2018-07-01 17:47+0900\n"
-"PO-Revision-Date: 2019-05-23 17:47+0900\n"
+"PO-Revision-Date: 2019-06-02 18:44+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,11 +19,20 @@ msgstr "Advanced Block Editor"
 msgid "Advanced_Block_Editor"
 msgstr "Advanced Block Editor"
 
+msgid "Advanced Block Editor setting"
+msgstr "Advanced Block Editor 設定"
+
+msgid "Editor width"
+msgstr "エディタ幅"
+
+msgid "Wordcount"
+msgstr "文字数カウント"
+
 msgid "Set editor width"
 msgstr "エディタ幅設定"
 
-msgid "Please input width (px)"
-msgstr "設定したい幅を入力 (px)"
+msgid "Set word count type"
+msgstr "文字数カウントタイプ"
 
 msgid "%d characters"
 msgstr "%d 文字"

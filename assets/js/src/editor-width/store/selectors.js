@@ -3,5 +3,5 @@
  * @returns {string} width
  */
 export function getWidth( state ) {
-	return state.width && state.width > 0 ? state.width : ''; // eslint-disable-line no-magic-numbers
+	return state.preferences.width && state.preferences.width > 0 ? state.preferences.width : ''; // eslint-disable-line no-magic-numbers
 }

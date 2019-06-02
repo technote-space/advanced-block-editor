@@ -43,8 +43,11 @@ class Editor implements \WP_Framework_Core\Interfaces\Singleton, \WP_Framework_C
 		], $this->app->get_plugin_version(), false );
 		$this->localize_script( 'advanced-block-editor', 'abeParams', [
 			'translate' => $this->get_translate_data( [
+				'Advanced Block Editor setting',
+				'Editor width',
+				'Wordcount',
 				'Set editor width',
-				'Please input width (px)',
+				'Set word count type',
 				'%d characters',
 			] ),
 		] );

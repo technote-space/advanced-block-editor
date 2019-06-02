@@ -1,0 +1,1 @@
+export const WORD_COUNT_TYPES = [ 'words', 'characters_excluding_spaces', 'characters_including_spaces' ];

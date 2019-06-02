@@ -15,6 +15,8 @@ global.wp.data = {
 	},
 	withDispatch: () => {
 	},
+	registerStore: () => {
+	},
 };
 global.wp.element = {};
 
