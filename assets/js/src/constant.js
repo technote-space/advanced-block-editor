@@ -3,7 +3,8 @@ export const MODULES = {
 	'editor-width': {
 		label: 'Editor width',
 		default: false,
-	}, 'wordcount': {
+	},
+	'wordcount': {
 		label: 'Wordcount',
 		default: true,
 	},

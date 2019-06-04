@@ -15,7 +15,7 @@ if ( ! defined( 'ADVANCED_BLOCK_EDITOR' ) ) {
 return [
 
 	// required wordpress version
-	'required_wordpress_version' => '5.2',
+	'required_wordpress_version' => '5.0',
 
 	// github repo
 	'github_repo'                => 'technote-space/advanced-block-editor',
