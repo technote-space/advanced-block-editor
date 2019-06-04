@@ -5,7 +5,7 @@ const { withSelect, withDispatch } = wp.data;
 const { withState, compose } = wp.compose;
 const { __ } = wp.i18n;
 
-import { STORE_NAME } from '../store/constant';
+import { STORE_NAME } from '../store';
 import { translate } from '../../common/utils';
 import { isActive, getWordCountTypes } from '../utils';
 

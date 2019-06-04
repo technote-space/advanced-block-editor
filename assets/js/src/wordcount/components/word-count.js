@@ -3,7 +3,7 @@ const { compose } = wp.compose;
 const { count } = wp.wordcount;
 const { sprintf } = wp.i18n;
 
-import { STORE_NAME } from '../store/constant';
+import { STORE_NAME } from '../store';
 import { translate } from '../../common/utils';
 import { isActive } from '../utils';
 

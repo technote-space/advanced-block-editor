@@ -1,6 +1,6 @@
 const { select, dispatch } = wp.data;
 
-import { STORE_NAME } from '../store/constant';
+import { STORE_NAME } from '../store';
 
 export const isModuleActive = name => select( STORE_NAME ).isActive( name );
 export const setModuleActive = name => state => dispatch( STORE_NAME ).setActive( name, state );
