@@ -21,7 +21,7 @@
     "@wordpress/block-library": "^2.4.6",
     "@wordpress/blocks": "^6.3.0",
     "@wordpress/components": "^7.4.0",
-    "@wordpress/compose": "^3.3.0",
+    "@wordpress/compose": "^3.4.0",
     "@wordpress/data": "^4.5.0",
     "@wordpress/editor": "^9.2.6",
     "@wordpress/element": "^2.4.0",
