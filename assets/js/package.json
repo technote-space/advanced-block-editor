@@ -23,7 +23,7 @@
     "@wordpress/components": "^7.4.0",
     "@wordpress/compose": "^3.3.0",
     "@wordpress/data": "^4.5.0",
-    "@wordpress/editor": "^9.2.6",
+    "@wordpress/editor": "^9.4.0",
     "@wordpress/element": "^2.4.0",
     "babel-loader": "^8.0.0",
     "css-loader": "^2.1.1",
