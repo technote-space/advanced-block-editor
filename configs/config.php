@@ -1,8 +1,6 @@
 <?php
 /**
- * @version 0.0.1
  * @author Technote
- * @since 0.0.1
  * @copyright Technote All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
  * @link https://technote.space/
@@ -15,7 +13,10 @@ if ( ! defined( 'ADVANCED_BLOCK_EDITOR' ) ) {
 return [
 
 	// required wordpress version
-	'required_wordpress_version' => '5.0',
+	'required_wordpress_version' => '5.2',
+
+	// update
+	'update_info_file_url'       => 'https://raw.githubusercontent.com/technote-space/advanced-block-editor/master/update.json',
 
 	// github repo
 	'github_repo'                => 'technote-space/advanced-block-editor',

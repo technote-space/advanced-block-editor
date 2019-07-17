@@ -1,8 +1,6 @@
 <?php
 /**
- * @version 0.0.1
  * @author Technote
- * @since 0.0.1
  * @copyright Technote All Rights Reserved
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2
  * @link https://technote.space/
@@ -29,10 +27,13 @@ class Editor implements \WP_Framework_Core\Interfaces\Singleton, \WP_Framework_C
 
 	/**
 	 * enqueue css for gutenberg
+	 *
+	 * @noinspection PhpUnusedPrivateMethodInspection
+	 * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
 	 */
-	/** @noinspection PhpUnusedPrivateMethodInspection */
 	private function enqueue_block_editor_assets() {
-		$this->enqueue_script( 'advanced-block-editor', 'index.min.js', [
+		$handle = 'advanced-block-editor';
+		$this->enqueue_script( $handle, 'index.min.js', $this->app->editor->filter_packages( [
 			'wp-element',
 			'wp-plugins',
 			'wp-data',
@@ -40,8 +41,8 @@ class Editor implements \WP_Framework_Core\Interfaces\Singleton, \WP_Framework_C
 			'wp-compose',
 			'wp-wordcount',
 			'wp-i18n',
-		], $this->app->get_plugin_version(), false );
-		$this->localize_script( 'advanced-block-editor', 'abeParams', [
+		] ), $this->app->get_plugin_version(), false );
+		$this->localize_script( $handle, 'abeParams', [
 			'translate' => $this->get_translate_data( [
 				'Advanced Block Editor setting',
 				'Editor width',
@@ -51,6 +52,6 @@ class Editor implements \WP_Framework_Core\Interfaces\Singleton, \WP_Framework_C
 				'%d characters',
 			] ),
 		] );
-		$this->enqueue_style( 'advanced-block-editor', 'gutenberg.css' );
+		$this->enqueue_style( $handle, 'gutenberg.css' );
 	}
 }
