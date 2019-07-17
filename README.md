@@ -10,7 +10,7 @@ This plugin adds some useful features to the block editor.
 
 ## Requirements
 - \>= PHP 5.6
-- \>= WordPress 5.0
+- \>= WordPress 5.2
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
