@@ -1,11 +1,10 @@
-require( 'should' );
 import { translate } from '../../../src/common/utils';
 
 describe( 'translate test', () => {
 	it( 'should translate if data exists', () => {
-		translate( 'test' ).should.equal( 'テスト' );
+		expect( translate( 'test' ) ).toBe( 'テスト' );
 	} );
 	it( 'should not translate if data not exists', () => {
-		translate( 'test2' ).should.equal( 'test2' );
+		expect( translate( 'test2' ) ).toBe( 'test2' );
 	} );
 } );
