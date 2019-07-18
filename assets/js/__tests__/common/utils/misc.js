@@ -27,20 +27,20 @@ describe( 'addSubscribe test', () => {
 			expect( selectedValue ).toBe( count ); // eslint-disable-line no-magic-numbers
 		} );
 
-		dispatch( 'core/editor' ).insertBlocks(
+		dispatch( 'core/block-editor' ).insertBlocks(
 			createBlock( 'core/paragraph', {} ),
 		);
 		expect( calledSelector ).toBe( 2 ); // eslint-disable-line no-magic-numbers
 		expect( calledListener ).toBe( 1 ); // eslint-disable-line no-magic-numbers
 
-		dispatch( 'core/editor' ).insertBlocks(
+		dispatch( 'core/block-editor' ).insertBlocks(
 			createBlock( 'core/paragraph', {} ),
 		);
 		expect( calledSelector ).toBe( 3 ); // eslint-disable-line no-magic-numbers
 		expect( calledListener ).toBe( 2 ); // eslint-disable-line no-magic-numbers
 
 		changeCount = false;
-		dispatch( 'core/editor' ).insertBlocks(
+		dispatch( 'core/block-editor' ).insertBlocks(
 			createBlock( 'core/paragraph', {} ),
 		);
 		expect( calledSelector ).toBe( 4 ); // eslint-disable-line no-magic-numbers
