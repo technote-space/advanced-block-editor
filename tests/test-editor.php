@@ -2,7 +2,7 @@
 /**
  * Class EditorTest
  *
- * @package Test_Travis
+ * @package Tests
  */
 
 use Advanced_Block_Editor\Classes\Models\Editor;
