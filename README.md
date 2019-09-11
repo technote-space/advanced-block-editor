@@ -9,7 +9,12 @@
 
 This plugin adds some useful features to the block editor.
 
+<!-- START doctoc -->
+<!-- END doctoc -->
+
 ## Screenshots
+### Word Count
+
 
 ## Requirements
 - \>= PHP 5.6
