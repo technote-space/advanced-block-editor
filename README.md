@@ -21,13 +21,22 @@ This plugin adds some useful features to the block editor.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Screenshots
+## Features
 ### Word Count
+![Word Count](https://raw.githubusercontent.com/technote-space/advanced-block-editor/images/assets/word-count.gif)  
+Displays the number of words at the top of the block editor.
 
+### Editor Width
+![Editor Width](https://raw.githubusercontent.com/technote-space/advanced-block-editor/images/assets/editor-width.gif)  
+Sets the width of the block editor.
 
 ## Requirements
 - \>= PHP 5.6
 - \>= WordPress 5.2
+
+## Create a issue
+- [Feature request](https://github.com/technote-space/advanced-block-editor/issues/new?assignees=technote-space&labels=&template=feature_request.md&title=)
+- [Bug report](https://github.com/technote-space/advanced-block-editor/issues/new?assignees=technote-space&labels=&template=bug_report.md&title=)
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
