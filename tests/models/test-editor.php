@@ -5,8 +5,12 @@
  * @package Tests
  */
 
+namespace Advanced_Block_Editor\Tests\Models;
+
 use Advanced_Block_Editor\Classes\Models\Editor;
 use PHPUnit\Framework\TestCase;
+use WP_Framework;
+use WP_UnitTestCase;
 
 /**
  * @noinspection PhpUndefinedClassInspection
@@ -43,20 +47,22 @@ class EditorTest extends WP_UnitTestCase {
 
 	public static function tearDownAfterClass() {
 		static::reset();
+	}
+
+	private static function reset() {
+		wp_dequeue_script( 'advanced-block-editor' );
+		wp_dequeue_style( 'advanced-block-editor' );
 		if ( static::$is_ci ) {
 			static::$app->file->delete( static::$app->define->plugin_assets_dir . DS . 'js' . DS . 'index.min.js' );
 		}
 	}
 
-	private static function reset() {
+	public function test_enqueue_block_editor_assets() {
 		wp_dequeue_script( 'advanced-block-editor' );
+		wp_dequeue_style( 'advanced-block-editor' );
 		if ( static::$is_ci ) {
 			static::$app->file->put_contents( static::$app->define->plugin_assets_dir . DS . 'js' . DS . 'index.min.js', '' );
 		}
-	}
-
-	public function test_enqueue_block_editor_assets() {
-		static::reset();
 
 		$this->assertFalse( wp_script_is( 'advanced-block-editor' ) );
 		$this->assertFalse( wp_style_is( 'advanced-block-editor' ) );

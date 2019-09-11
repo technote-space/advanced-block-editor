@@ -12,9 +12,7 @@ import { isActive } from '../utils';
  * @param {string} wordCountType word count type
  * @returns {number} word count
  */
-function getWordCount( content, wordCountType ) {
-	return count( content, wordCountType );
-}
+const getWordCount = ( content, wordCountType ) => count( content, wordCountType );
 
 /**
  * @param {string} content content
@@ -23,9 +21,7 @@ function getWordCount( content, wordCountType ) {
  * @returns {Component} word count
  * @constructor
  */
-function WordCount( { content, wordCountType, isActive } ) {
-	return isActive && <span>{ sprintf( translate( '%d characters' ), getWordCount( content, wordCountType ) ) } </span>;
-}
+const WordCount = ( { content, wordCountType, isActive } ) => isActive && <span>{ sprintf( translate( '%d characters' ), getWordCount( content, wordCountType ) ) } </span>;
 
 export default compose(
 	withSelect( select => ( {

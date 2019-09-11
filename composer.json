@@ -1,11 +1,4 @@
 {
-  "require": {
-    "wp-content-framework/core": "^0.0.59",
-    "wp-content-framework/update": "^0.0.8",
-    "wp-content-framework/update_check": "^0.0.5",
-    "wp-content-framework/editor": "^0.0.7",
-    "php": ">=5.6"
-  },
   "name": "technote-space/advanced-block-editor",
   "description": "",
   "type": "wordpress-plugin",
@@ -17,6 +10,13 @@
       "homepage": "https://technote.space"
     }
   ],
+  "require": {
+    "wp-content-framework/core": "^0.0.59",
+    "wp-content-framework/update": "^0.0.8",
+    "wp-content-framework/update_check": "^0.0.5",
+    "wp-content-framework/editor": "^0.0.7",
+    "php": ">=5.6"
+  },
   "require-dev": {
     "squizlabs/php_codesniffer": "*",
     "wp-coding-standards/wpcs": "*",
@@ -29,26 +29,55 @@
   },
   "scripts": {
     "setup": [
-      "composer install --no-dev",
-      "yarn --audit --cwd assets/js install",
+      "@prepare",
+      "@build"
+    ],
+    "prepare": [
+      "@prepare:php",
+      "@prepare:js"
+    ],
+    "build": [
       "yarn --cwd assets/js build"
     ],
+    "prepare:php": [
+      "composer install --no-interaction --prefer-dist --no-suggest"
+    ],
+    "prepare:js": [
+      "yarn --cwd assets/js install"
+    ],
     "test": [
+      "@stage-lint",
+      "@stage-test"
+    ],
+    "stage-lint": [
       "@phpcs",
       "@phpmd",
-      "@phpunit"
+      "@eslint"
     ],
-    "phpunit": [
-      "phpunit"
+    "stage-test": [
+      "@jest",
+      "@bin:wp-test-p"
     ],
     "phpcs": [
       "phpcs --standard=./phpcs.xml"
     ],
-    "fix": [
-      "phpcbf --standard=./phpcs.xml"
-    ],
     "phpmd": [
       "phpmd ./src/,./configs/,./tests/ text phpmd.xml"
+    ],
+    "phpunit": [
+      "phpunit --stop-on-failure --colors=always"
+    ],
+    "phpunit:no": [
+      "@phpunit --no-coverage"
+    ],
+    "eslint": [
+      "yarn --cwd assets/js lint"
+    ],
+    "jest": [
+      "yarn --cwd assets/js cover"
+    ],
+    "jest:update": [
+      "yarn --cwd assets/js cover:update"
     ],
     "coveralls": [
       "php-coveralls -v"
