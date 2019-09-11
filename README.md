@@ -13,9 +13,11 @@ This plugin adds some useful features to the block editor.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Screenshots](#screenshots)
+- [Features](#features)
   - [Word Count](#word-count)
+  - [Editor Width](#editor-width)
 - [Requirements](#requirements)
+- [Create a issue](#create-a-issue)
 - [Author](#author)
 - [Plugin framework](#plugin-framework)
 
