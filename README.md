@@ -39,7 +39,7 @@ Sets the width of the block editor.
 - \>= PHP 5.6
 - \>= WordPress 5.2
 
-## Create a issue
+## Create issues
 - [Feature request](https://github.com/technote-space/advanced-block-editor/issues/new?assignees=technote-space&labels=&template=feature_request.md&title=)
 - [Bug report](https://github.com/technote-space/advanced-block-editor/issues/new?assignees=technote-space&labels=&template=bug_report.md&title=)
 
