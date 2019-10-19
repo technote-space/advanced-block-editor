@@ -20,7 +20,7 @@ This plugin adds some useful features to the block editor.
   - [Word Count](#word-count)
   - [Editor Width](#editor-width)
 - [Requirements](#requirements)
-- [Create a issue](#create-a-issue)
+- [Create issues](#create-issues)
 - [Author](#author)
 - [Plugin framework](#plugin-framework)
 
