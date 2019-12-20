@@ -1,6 +1,6 @@
 # Advanced Block Editor
 
-[![Build Status](https://github.com/technote-space/advanced-block-editor/workflows/Build/badge.svg)](https://github.com/technote-space/advanced-block-editor/actions)
+[![CI Status](https://github.com/technote-space/advanced-block-editor/workflows/CI/badge.svg)](https://github.com/technote-space/advanced-block-editor/actions)
 [![Build Status](https://travis-ci.com/technote-space/advanced-block-editor.svg?branch=master)](https://travis-ci.com/technote-space/advanced-block-editor)
 [![codecov](https://codecov.io/gh/technote-space/advanced-block-editor/branch/master/graph/badge.svg)](https://codecov.io/gh/technote-space/advanced-block-editor)
 [![CodeFactor](https://www.codefactor.io/repository/github/technote-space/advanced-block-editor/badge)](https://www.codefactor.io/repository/github/technote-space/advanced-block-editor)
