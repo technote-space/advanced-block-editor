@@ -5,16 +5,17 @@ on:
 
 name: Release
 
+env:
+  CI: 1
+  TRAVIS_BUILD_DIR: ${{ github.workspace }}
+
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    env:
-      CI: 1
-      TRAVIS_BUILD_DIR: ${{ github.workspace }}
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
         with:
           fetch-depth: 3
       - name: Prepare setting
@@ -38,12 +39,9 @@ jobs:
     name: Upload build files
     needs: test
     runs-on: ubuntu-latest
-    env:
-      CI: 1
-      TRAVIS_BUILD_DIR: ${{ github.workspace }}
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
         with:
           fetch-depth: 3
       - name: Prepare setting
