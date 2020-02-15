@@ -168,16 +168,16 @@
         },
         {
             "name": "technote/gutenberg-packages",
-            "version": "v0.2.3",
+            "version": "v0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/technote-space/gutenberg-packages.git",
-                "reference": "3cc190d16797ab58af3daa0ab4c859e8201a6771"
+                "reference": "d24660af8004d9d36765d586c9c506c96db6c3fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/technote-space/gutenberg-packages/zipball/3cc190d16797ab58af3daa0ab4c859e8201a6771",
-                "reference": "3cc190d16797ab58af3daa0ab4c859e8201a6771",
+                "url": "https://api.github.com/repos/technote-space/gutenberg-packages/zipball/d24660af8004d9d36765d586c9c506c96db6c3fd",
+                "reference": "d24660af8004d9d36765d586c9c506c96db6c3fd",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
                 "gutenberg",
                 "wordpress"
             ],
-            "time": "2020-02-13T04:24:20+00:00"
+            "time": "2020-02-15T08:48:49+00:00"
         },
         {
             "name": "wp-content-framework/cache",
@@ -2901,16 +2901,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925"
+                "reference": "aed98a490f9a8f78468232db345ab9cf606cf598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/573381c0a64f155a0d9a23f4b0c797194805b925",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/aed98a490f9a8f78468232db345ab9cf606cf598",
+                "reference": "aed98a490f9a8f78468232db345ab9cf606cf598",
                 "shasum": ""
             },
             "require": {
@@ -2945,7 +2945,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2019-11-24T13:36:37+00:00"
+            "time": "2020-02-14T12:15:55+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
