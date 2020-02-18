@@ -12,6 +12,8 @@ This plugin adds some useful features to the block editor.
 
 [Latest version](https://github.com/technote-space/advanced-block-editor/releases/latest/download/release.zip)
 
+## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <details>
