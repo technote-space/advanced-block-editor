@@ -27,7 +27,6 @@ export default (state = {
  * @param {number} width width
  */
 const setStyle = width => {
-	console.log(document.querySelectorAll('.set-editor-width'));
 	document.querySelectorAll('.set-editor-width').forEach(elem => elem.remove());
 	if (!isActive() || !width || width <= 0) { // eslint-disable-line no-magic-numbers
 		return;
