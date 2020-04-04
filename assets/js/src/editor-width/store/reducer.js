@@ -1,19 +1,19 @@
 import { INITIALIZE, SET_WIDTH } from './constant';
 import { isActive } from '../utils';
 
-export default ( state = {
+export default (state = {
 	preferences: {},
-}, action ) => {
-	switch ( action.type ) {
+}, action) => {
+	switch (action.type) {
 		case INITIALIZE:
-			setStyle( state.preferences.width );
+			setStyle(state.preferences.width);
 			break;
 		case SET_WIDTH:
-			if ( /^\d*$/.test( action.width ) ) {
-				const newState = Object.assign( {}, state );
-				newState.preferences = Object.assign( {}, state.preferences );
-				newState.preferences.width = action.width;
-				setStyle( action.width );
+			if (/^\d*$/.test(action.width)) {
+				const newState             = Object.assign({}, state);
+				newState.preferences       = Object.assign({}, state.preferences);
+				newState.preferences.width = Number(action.width);
+				setStyle(newState.preferences.width);
 				return newState;
 			}
 			break;
@@ -26,36 +26,45 @@ export default ( state = {
 /**
  * @param {number} width width
  */
-function setStyle( width ) {
-	const remove = document.getElementById( 'set-editor-width' );
-	if ( remove ) {
-		remove.remove();
-	}
-	if ( ! isActive() || ! width ) {
+const setStyle = width => {
+	console.log(document.querySelectorAll('.set-editor-width'));
+	document.querySelectorAll('.set-editor-width').forEach(elem => elem.remove());
+	if (!isActive() || !width || width <= 0) { // eslint-disable-line no-magic-numbers
 		return;
 	}
 
-	const styleSheetElement = document.createElement( 'style' );
-	styleSheetElement.id = 'set-editor-width';
-	document.head.appendChild( styleSheetElement );
-	const sheet = styleSheetElement.sheet;
+	const styles = getStyles(width);
+	Object.keys(styles).forEach(media => {
+		const styleSheetElement     = document.createElement('style');
+		styleSheetElement.className = 'set-editor-width';
+		document.head.appendChild(styleSheetElement);
+		const sheet = styleSheetElement.sheet;
 
-	const styles = getStyles( width );
-	Object.keys( styles ).forEach( selector => {
-		const style = styles[ selector ];
-		if ( sheet.insertRule ) {
-			sheet.insertRule( `#editor ${ selector }` + '{' + style + '}', sheet.cssRules.length );
-		} else {
-			sheet.addRule( `#editor ${ selector }`, style );
+		const item = styles[ media ];
+		if (media && media !== '*') {
+			styleSheetElement.setAttribute('media', media);
 		}
-	} );
-}
+
+		Object.keys(item).forEach(selector => {
+			if (sheet.insertRule) {
+				sheet.insertRule(`#editor ${selector}` + '{' + item[ selector ] + '}', sheet.cssRules.length);
+			} else {
+				sheet.addRule(`#editor ${selector}`, item[ selector ]);
+			}
+		});
+	});
+};
 
 /**
  * @param {number} width width
- * @returns {{'.editor-writing-flow': string, '.wp-block': string}} styles
+ * @returns {object} styles
  */
-const getStyles = width => ( {
-	'.editor-writing-flow': `max-width: ${ width }px; width: auto; margin: auto`,
-	'.wp-block': 'max-width: 100%; margin: 0 auto; padding: 0;',
-} );
+const getStyles = width => ({
+	'*': {
+		'.wp-block': `max-width: ${width}px; margin-left: auto; margin-right: auto; padding: 0;`,
+		'.wp-block[data-align="full"]': 'max-width: none; margin-left: -14px; margin-right: -14px;',
+	},
+	'(min-width: 600px)': {
+		'.wp-block[data-align="full"]': 'max-width: none; margin-left: -58px; margin-right: -58px;',
+	},
+});

@@ -1,5 +1,5 @@
-export const PLUGIN_NAME = 'advanced-block-editor';
-export const MODULES = {
+export const PLUGIN_NAME    = 'advanced-block-editor';
+export const MODULES        = {
 	'editor-width': {
 		label: 'Editor width',
 		default: false,
