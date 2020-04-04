@@ -3,10 +3,10 @@ import { translate } from '../../common/utils';
 
 export const getWordCountTypes = () => [
 	{
-		label: translate( 'Default' ),
+		label: translate('Default'),
 		value: '',
 	},
-].concat( Object.keys( WORD_COUNT_TYPES ).map( type => ( {
-	label: translate( WORD_COUNT_TYPES[ type ] ),
+].concat(Object.keys(WORD_COUNT_TYPES).map(type => ({
+	label: translate(WORD_COUNT_TYPES[ type ]),
 	value: type,
-} ) ) );
+})));

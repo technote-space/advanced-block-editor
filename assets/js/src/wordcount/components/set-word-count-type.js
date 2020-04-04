@@ -1,9 +1,10 @@
-const { Fragment } = wp.element;
-const { Modal, SelectControl } = wp.components;
-const { PluginMoreMenuItem } = wp.editPost;
-const { withSelect, withDispatch } = wp.data;
-const { withState, compose } = wp.compose;
-const { __ } = wp.i18n;
+import React from 'react';
+import { Modal, SelectControl } from '@wordpress/components';
+import { withState, compose } from '@wordpress/compose';
+import { withSelect, withDispatch } from '@wordpress/data';
+import { PluginMoreMenuItem } from '@wordpress/edit-post';
+import { Fragment } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 import { STORE_NAME } from '../store';
 import { translate } from '../../common/utils';
@@ -19,38 +20,38 @@ import { isActive, getWordCountTypes } from '../utils';
  * @returns {*} Word count setting
  * @constructor
  */
-const SetWordCountType = ( { isOpened, setType, openModal, closeModal, type, isActive } ) => {
+const SetWordCountType = ({ isOpened, setType, openModal, closeModal, type, isActive }) => {
 	return isActive && <Fragment>
 		<PluginMoreMenuItem
-			onClick={ openModal }
+			onClick={openModal}
 		>
-			{ translate( 'Set word count type' ) }
+			{translate('Set word count type')}
 		</PluginMoreMenuItem>
-		{ isOpened && <Modal
-			title={ translate( 'Set word count type' ) }
-			closeLabel={ __( 'Close' ) }
-			onRequestClose={ closeModal }
+		{isOpened && <Modal
+			title={translate('Set word count type')}
+			closeLabel={__('Close')}
+			onRequestClose={closeModal}
 		>
 			<SelectControl
-				options={ getWordCountTypes() }
-				onChange={ setType }
-				value={ type }
+				options={getWordCountTypes()}
+				onChange={setType}
+				value={type}
 			/>
-		</Modal> }
+		</Modal>}
 	</Fragment>;
 };
 
 export default compose(
-	withState( {
+	withState({
 		isOpened: false,
-	} ),
-	withSelect( select => ( {
-		type: select( STORE_NAME ).getWordCountType( true ),
+	}),
+	withSelect(select => ({
+		type: select(STORE_NAME).getWordCountType(true),
 		isActive: isActive(),
-	} ) ),
-	withDispatch( ( dispatch, { setState } ) => ( {
-		setType: ( type ) => dispatch( STORE_NAME ).setType( type ),
-		openModal: () => setState( { isOpened: true } ),
-		closeModal: () => setState( { isOpened: false } ),
-	} ) ),
-)( SetWordCountType );
+	})),
+	withDispatch((dispatch, { setState }) => ({
+		setType: (type) => dispatch(STORE_NAME).setType(type),
+		openModal: () => setState({ isOpened: true }),
+		closeModal: () => setState({ isOpened: false }),
+	})),
+)(SetWordCountType);

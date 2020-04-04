@@ -3,6 +3,4 @@
  * @param {string} name name
  * @returns {boolean} active state
  */
-export function isActive( state, name ) {
-	return name in state.preferences && !! state.preferences[ name ];
-}
+export const isActive = (state, name) => name in state.preferences && !!state.preferences[ name ];

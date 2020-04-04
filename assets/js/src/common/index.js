@@ -1,9 +1,9 @@
-const { registerPlugin } = wp.plugins;
 
+import { registerPlugin } from '@wordpress/plugins';
 import './store';
 import { EditorSettings } from './components';
 import { getPluginName } from './utils';
 
-registerPlugin( getPluginName( 'common' ), {
+registerPlugin(getPluginName('common'), {
 	render: () => <EditorSettings/>,
-} );
+});
