@@ -21,37 +21,37 @@ import { isActive, getWordCountTypes } from '../utils';
  * @constructor
  */
 const SetWordCountType = ({ isOpened, setType, openModal, closeModal, type, isActive }) => {
-	return isActive && <Fragment>
-		<PluginMoreMenuItem
-			onClick={openModal}
-		>
-			{translate('Set word count type')}
-		</PluginMoreMenuItem>
-		{isOpened && <Modal
-			title={translate('Set word count type')}
-			closeLabel={__('Close')}
-			onRequestClose={closeModal}
-		>
-			<SelectControl
-				options={getWordCountTypes()}
-				onChange={setType}
-				value={type}
-			/>
-		</Modal>}
-	</Fragment>;
+  return isActive && <Fragment>
+    <PluginMoreMenuItem
+      onClick={openModal}
+    >
+      {translate('Set word count type')}
+    </PluginMoreMenuItem>
+    {isOpened && <Modal
+      title={translate('Set word count type')}
+      closeLabel={__('Close')}
+      onRequestClose={closeModal}
+    >
+      <SelectControl
+        options={getWordCountTypes()}
+        onChange={setType}
+        value={type}
+      />
+    </Modal>}
+  </Fragment>;
 };
 
 export default compose(
-	withState({
-		isOpened: false,
-	}),
-	withSelect(select => ({
-		type: select(STORE_NAME).getWordCountType(true),
-		isActive: isActive(),
-	})),
-	withDispatch((dispatch, { setState }) => ({
-		setType: (type) => dispatch(STORE_NAME).setType(type),
-		openModal: () => setState({ isOpened: true }),
-		closeModal: () => setState({ isOpened: false }),
-	})),
+  withState({
+    isOpened: false,
+  }),
+  withSelect(select => ({
+    type: select(STORE_NAME).getWordCountType(true),
+    isActive: isActive(),
+  })),
+  withDispatch((dispatch, { setState }) => ({
+    setType: (type) => dispatch(STORE_NAME).setType(type),
+    openModal: () => setState({ isOpened: true }),
+    closeModal: () => setState({ isOpened: false }),
+  })),
 )(SetWordCountType);

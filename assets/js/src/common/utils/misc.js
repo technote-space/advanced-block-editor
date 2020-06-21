@@ -12,12 +12,12 @@ export const getPluginName = name => `${PLUGIN_NAME}--${name}`;
  * @param {function} listener listener
  */
 export const addSubscribe = (selector, listener) => {
-	let previousValue = selector();
-	subscribe(function() {
-		const selectedValue = selector();
-		if (selectedValue !== previousValue) {
-			previousValue = selectedValue;
-			listener(selectedValue);
-		}
-	});
+  let previousValue = selector();
+  subscribe(function() {
+    const selectedValue = selector();
+    if (selectedValue !== previousValue) {
+      previousValue = selectedValue;
+      listener(selectedValue);
+    }
+  });
 };

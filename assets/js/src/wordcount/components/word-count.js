@@ -24,9 +24,9 @@ const getWordCount = (content, wordCountType) => count(content, wordCountType, {
 const WordCount = ({ content, wordCountType, isActive }) => isActive && <span>{sprintf(translate('%d characters'), getWordCount(content, wordCountType))} </span>;
 
 export default compose(
-	withSelect(select => ({
-		content: select('core/editor').getEditedPostAttribute('content'),
-		wordCountType: select(STORE_NAME).getWordCountType(),
-		isActive: isActive(),
-	})),
+  withSelect(select => ({
+    content: select('core/editor').getEditedPostAttribute('content'),
+    wordCountType: select(STORE_NAME).getWordCountType(),
+    isActive: isActive(),
+  })),
 )(WordCount);

@@ -4,7 +4,7 @@ import { INITIALIZE, SET_WIDTH } from './constant';
  * @returns {{type}} action
  */
 export const initialize = () => ({
-	type: INITIALIZE,
+  type: INITIALIZE,
 });
 
 /**
@@ -12,6 +12,6 @@ export const initialize = () => ({
  * @returns {{width: *, type}} action
  */
 export const setWidth = width => ({
-	type: SET_WIDTH,
-	width,
+  type: SET_WIDTH,
+  width,
 });

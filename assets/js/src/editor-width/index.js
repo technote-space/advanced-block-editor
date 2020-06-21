@@ -10,10 +10,10 @@ import { SetEditorWidth } from './components';
 import { getPluginName, addSubscribe } from '../common/utils';
 
 registerPlugin(getPluginName('editor-width'), {
-	render: () => <SetEditorWidth/>,
+  render: () => <SetEditorWidth/>,
 });
 
 domReady(function() {
-	dispatch(STORE_NAME).initialize();
-	addSubscribe(() => select(COMMON_STORE_NAME).isActive('editor-width'), () => dispatch(STORE_NAME).initialize());
+  dispatch(STORE_NAME).initialize();
+  addSubscribe(() => select(COMMON_STORE_NAME).isActive('editor-width'), () => dispatch(STORE_NAME).initialize());
 });

@@ -5,9 +5,9 @@ import { TRANSLATE_DATA } from '../../constant';
  * @returns {*} translated string
  */
 export const translate = str => {
-	if (str in TRANSLATE_DATA) {
-		return TRANSLATE_DATA[ str ];
-	}
+  if (str in TRANSLATE_DATA) {
+    return TRANSLATE_DATA[ str ];
+  }
 
-	return str;
+  return str;
 };
