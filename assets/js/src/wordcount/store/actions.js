@@ -4,7 +4,7 @@ import { INITIALIZE, SET_WORD_COUNT_TYPE } from './constant';
  * @returns {{type}} action
  */
 export const initialize = () => ({
-	type: INITIALIZE,
+  type: INITIALIZE,
 });
 
 /**
@@ -12,6 +12,6 @@ export const initialize = () => ({
  * @returns {{width: *, type}} action
  */
 export const setType = wordCountType => ({
-	type: SET_WORD_COUNT_TYPE,
-	wordCountType,
+  type: SET_WORD_COUNT_TYPE,
+  wordCountType,
 });

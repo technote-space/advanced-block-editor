@@ -20,41 +20,41 @@ import { isActive } from '../utils';
  * @constructor
  */
 const SetEditorWidth = ({ isOpened, openModal, closeModal, isActive, width, setWidth }) => {
-	return isActive && <Fragment>
-		<PluginMoreMenuItem
-			onClick={openModal}
-		>
-			{translate('Set editor width')}
-		</PluginMoreMenuItem>
-		{isOpened && <Modal
-			title={translate('Editor width setting')}
-			closeLabel={__('Close')}
-			onRequestClose={closeModal}
-		>
-			<input
-				type='number'
-				value={width}
-				onChange={event => setWidth(event.target.value)}
-				style={{
-					display: 'block',
-					margin: '10px auto',
-				}}
-			/>
-		</Modal>}
-	</Fragment>;
+  return isActive && <Fragment>
+    <PluginMoreMenuItem
+      onClick={openModal}
+    >
+      {translate('Set editor width')}
+    </PluginMoreMenuItem>
+    {isOpened && <Modal
+      title={translate('Editor width setting')}
+      closeLabel={__('Close')}
+      onRequestClose={closeModal}
+    >
+      <input
+        type='number'
+        value={width}
+        onChange={event => setWidth(event.target.value)}
+        style={{
+          display: 'block',
+          margin: '10px auto',
+        }}
+      />
+    </Modal>}
+  </Fragment>;
 };
 
 export default compose(
-	withState({
-		isOpened: false,
-	}),
-	withSelect(select => ({
-		width: select(STORE_NAME).getWidth(),
-		isActive: isActive(),
-	})),
-	withDispatch((dispatch, { setState }) => ({
-		setWidth: (width) => dispatch(STORE_NAME).setWidth(width),
-		openModal: () => setState({ isOpened: true }),
-		closeModal: () => setState({ isOpened: false }),
-	})),
+  withState({
+    isOpened: false,
+  }),
+  withSelect(select => ({
+    width: select(STORE_NAME).getWidth(),
+    isActive: isActive(),
+  })),
+  withDispatch((dispatch, { setState }) => ({
+    setWidth: (width) => dispatch(STORE_NAME).setWidth(width),
+    openModal: () => setState({ isOpened: true }),
+    closeModal: () => setState({ isOpened: false }),
+  })),
 )(SetEditorWidth);

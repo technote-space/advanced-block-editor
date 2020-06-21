@@ -7,13 +7,13 @@ import { getPluginName } from '../common/utils';
 import { WordCount, SetWordCountType } from './components';
 
 registerPlugin(getPluginName('wordcount'), {
-	render: () => <SetWordCountType/>,
+  render: () => <SetWordCountType/>,
 });
 
 domReady(function() {
-	document.querySelector('.edit-post-header-toolbar').insertAdjacentHTML('beforeend', '<div class="character-count"></div>');
-	render(
-		<WordCount/>,
-		document.querySelector('.character-count'),
-	);
+  document.querySelector('.edit-post-header-toolbar').insertAdjacentHTML('beforeend', '<div class="character-count"></div>');
+  render(
+    <WordCount/>,
+    document.querySelector('.character-count'),
+  );
 });
