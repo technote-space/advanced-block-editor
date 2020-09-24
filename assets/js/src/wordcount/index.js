@@ -11,9 +11,11 @@ registerPlugin(getPluginName('wordcount'), {
 });
 
 domReady(function() {
-  document.querySelector('.edit-post-header-toolbar').insertAdjacentHTML('beforeend', '<div class="character-count"></div>');
-  render(
-    <WordCount/>,
-    document.querySelector('.character-count'),
-  );
+  setTimeout(() => {
+    document.querySelector('.edit-post-header-toolbar').insertAdjacentHTML('beforeend', '<div class="character-count"></div>');
+    render(
+      <WordCount/>,
+      document.querySelector('.character-count'),
+    );
+  }, 0); // eslint-disable-line no-magic-numbers
 });
