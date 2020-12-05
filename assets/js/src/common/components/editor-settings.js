@@ -2,52 +2,50 @@ import React from 'react';
 import { Fragment } from '@wordpress/element';
 import { CheckboxControl, Modal } from '@wordpress/components';
 import { PluginMoreMenuItem } from '@wordpress/edit-post';
-import { withSelect, withDispatch } from '@wordpress/data';
-import { withState, compose } from '@wordpress/compose';
+import { useSelect, useDispatch } from '@wordpress/data';
+import { useState, useCallback, useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { MODULES } from '../../constant';
 import { translate } from '../../common/utils';
-import { isModuleActive, toggleModuleActive } from '../utils';
+import { STORE_NAME } from '../store';
 
 /**
- * @param {boolean} isOpened is opened?
- * @param {function} openModal open modal
- * @param {function} closeModal close modal
- * @param {function} isModuleActive is module active?
  * @returns {Component} editor settings
  * @constructor
  */
-const EditorSettings = ({ isOpened, openModal, closeModal, isModuleActive }) => {
-  return <Fragment>
+const EditorSettings = () => {
+  const [stateChanged, setStateChanged] = useState(false);
+  const [isOpened, setIsOpened]         = useState(false);
+  const isActive                        = useSelect(select => Object.assign(...Object.keys(MODULES).map(name => ({ [ name ]: select(STORE_NAME).isActive(name) }))), [stateChanged]);
+  const { setActive }                   = useDispatch(STORE_NAME);
+  const openModal                       = useCallback(() => setIsOpened(true), []);
+  const closeModal                      = useCallback(() => setIsOpened(false), []);
+  const toggleModuleActive              = name => checked => {
+    setActive(name, checked);
+    setStateChanged(!stateChanged);
+  };
+  const title                           = useMemo(() => translate('Advanced Block Editor setting'), []);
+  const closeLabel                      = useMemo(() => __('Close'), []);
+
+  return useMemo(() => <Fragment>
     <PluginMoreMenuItem
       onClick={openModal}
     >
-      {translate('Advanced Block Editor setting')}
+      {title}
     </PluginMoreMenuItem>
     {isOpened && <Modal
-      title={translate('Advanced Block Editor setting')}
-      closeLabel={__('Close')}
+      title={title}
+      closeLabel={closeLabel}
       onRequestClose={closeModal}
     >
       {Object.keys(MODULES).map(name => <CheckboxControl
         key={name}
         label={translate(MODULES[ name ].label)}
-        checked={isModuleActive(name)}
+        checked={isActive[ name ]}
         onChange={toggleModuleActive(name)}
       />)}
     </Modal>}
-  </Fragment>;
+  </Fragment>, [isActive, isOpened]);
 };
 
-export default compose(
-  withState({
-    isOpened: false,
-  }),
-  withSelect(() => ({
-    isModuleActive: name => isModuleActive(name),
-  })),
-  withDispatch((dispatch, { setState }) => ({
-    openModal: () => setState({ isOpened: true }),
-    closeModal: () => setState({ isOpened: false }),
-  })),
-)(EditorSettings);
+export default EditorSettings;
