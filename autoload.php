@@ -4,7 +4,7 @@
  * Plugin URI:
  * Description: This plugin adds some useful features to the block editor.
  * Author: Technote
- * Version: 1.0.11
+ * Version: 1.0.12
  * Author URI: https://technote.space
  * Text Domain: advanced-block-editor
  * Domain Path: /languages/
