@@ -1,6 +1,6 @@
 {
   "name": "advanced-block-editor",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "advanced block editor",
   "scripts": {
     "start": "yarn build",
